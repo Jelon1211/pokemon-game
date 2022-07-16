@@ -2,7 +2,7 @@ import "./header.css";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  // comment
+  // comment 2
 
   return (
     <nav className="nav-bar">
