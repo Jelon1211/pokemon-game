@@ -1,3 +1,4 @@
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import MainMenu from "../MainMenu/MainMenu";
 
@@ -6,6 +7,7 @@ const Home = () => {
     <>
       <Header></Header>
       <MainMenu></MainMenu>
+      <Footer></Footer>
     </>
   );
 };
