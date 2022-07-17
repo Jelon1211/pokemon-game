@@ -12,7 +12,8 @@
 }
 
 .nav-bar-logo,
-.nav-bar-link {
+.nav-bar-link,
+.nav-link-wrapper {
   width: 5rem;
   padding-left: 1rem;
   flex-grow: 1;
@@ -22,7 +23,7 @@
   flex-grow: 1;
 }
 .nav-title {
-  margin: 0;
+  margin: 0 0 0 7px;
   padding-top: 5px;
   font-size: 24px;
   font-weight: bold;

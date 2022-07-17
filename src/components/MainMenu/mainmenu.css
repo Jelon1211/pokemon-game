@@ -1,0 +1,21 @@
+.mainmenu-container {
+  background-color: crimson;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 40px;
+  min-height: calc(80vh - 40px);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainmenu-button {
+  background-color: #14080e;
+  border: none;
+  color: crimson;
+  border-radius: 15px;
+  width: 15rem;
+  height: 15rem;
+  font-size: 5rem;
+}
