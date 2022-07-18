@@ -1,17 +1,29 @@
-.mainmenu-container-wrapper {
+.mainmenu-container-wrapper-home {
   min-height: calc(80vh - 40px);
   background-color: crimson;
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 25px;
-
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.mainmenu-button {
+.mainmenu-container-wrapper {
+  min-height: calc(80vh - 40px);
+  background-color: crimson;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainmenu-start-button {
   background-color: #14080e;
   border: none;
   color: crimson;
@@ -21,9 +33,34 @@
   font-size: 5rem;
 }
 
+.mainmenu-container-pokemons {
+  margin-top: 30px;
+}
+
+.mainmenu-pokemon-container {
+  margin: 20px 15px;
+  display: flex;
+}
+
+.mainmenu-pokemon-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .mainmenu-pokemon-image {
   width: 5rem;
   height: 5rem;
+}
+
+.mainmenu-findgame-button-container {
+  margin-bottom: 30px;
+  border: none;
+  background-color: #14080e;
+  color: crimson;
+  border-radius: 15px;
+  width: 15rem;
+  height: 5rem;
+  font-size: 2rem;
 }
 
 @media screen and (min-width: 1400px) {
