@@ -64,7 +64,16 @@
   font-size: 2rem;
 }
 
+.mainmenu-chosen-pokemon {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 @media screen and (min-width: 1400px) {
+  .mainmenu-container-wrapper-home {
+    width: 50vw;
+  }
   .mainmenu-container {
     display: flex;
     justify-content: center;

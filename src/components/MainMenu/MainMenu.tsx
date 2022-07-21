@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import PokemonData from "../../Data/PokemonData";
 import "./mainmenu.css";
+
+interface IPokemonData {
+  id: number;
+  name: string;
+  isChosen: boolean;
+}
 
 const MainMenu = () => {
   const [isChoosePokemonOpen, setIsChoosePokemonOpen] =
     useState<boolean>(false);
 
-  const [isActivePokemon, setIsActivePokemon] = useState<boolean>(false);
+  const [isActivePokemon, setIsActivePokemon] = useState<IPokemonData[]>([]);
 
-  const handleClickedPokemon = () => {
-    setIsActivePokemon((current) => !current);
-  };
+  useEffect(() => {
+    setIsActivePokemon(PokemonData);
+  }, []);
+
+  const handleClickedPokemon = () => {};
 
   if (isChoosePokemonOpen) {
     return (
@@ -19,9 +28,14 @@ const MainMenu = () => {
           <div className="mainmenu-container-wrapper">
             <div className="mainmenu-container-pokemons">
               <div
-                className="mainmenu-pokemon-container"
+                className={`mainmenu-pokemon-container
+                  ${
+                    isActivePokemon[0].isChosen
+                      ? " mainmenu-chosen-pokemon"
+                      : ""
+                  }
+                `}
                 onClick={handleClickedPokemon}
-                style={{ border: isActivePokemon ? "1px solid black" : "" }}
               >
                 <img
                   className="mainmenu-pokemon-image"
@@ -31,7 +45,13 @@ const MainMenu = () => {
                 <p className="mainmenu-pokemon-name">Pikatchu</p>
               </div>
               <div
-                className="mainmenu-pokemon-container"
+                className={`mainmenu-pokemon-container
+                  ${
+                    isActivePokemon[1].isChosen
+                      ? " mainmenu-chosen-pokemon"
+                      : ""
+                  }
+                `}
                 onClick={handleClickedPokemon}
               >
                 <img
@@ -42,7 +62,13 @@ const MainMenu = () => {
                 <p className="mainmenu-pokemon-name">Bulbasaur</p>
               </div>
               <div
-                className="mainmenu-pokemon-container"
+                className={`mainmenu-pokemon-container
+                  ${
+                    isActivePokemon[2].isChosen
+                      ? " mainmenu-chosen-pokemon"
+                      : ""
+                  }
+                `}
                 onClick={handleClickedPokemon}
               >
                 <img
