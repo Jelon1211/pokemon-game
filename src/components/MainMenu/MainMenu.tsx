@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import PokemonData from "../../Data/PokemonData";
 import "./mainmenu.css";
 
@@ -11,14 +11,40 @@ interface IPokemonData {
 const MainMenu = () => {
   const [isChoosePokemonOpen, setIsChoosePokemonOpen] =
     useState<boolean>(false);
-
   const [isActivePokemon, setIsActivePokemon] = useState<IPokemonData[]>([]);
+  const [chosenPokemon, setChosenPokemon] = useState<IPokemonData>();
 
   useEffect(() => {
     setIsActivePokemon(PokemonData);
   }, []);
 
-  const handleClickedPokemon = () => {};
+  const handleClickedPokemon = useCallback(
+    (id: number) => {
+      const indexOfId = isActivePokemon
+        .map((x) => Object.values(x)[0])
+        .indexOf(id);
+      for (let element of isActivePokemon) {
+        if (element.id === id) {
+          const copyOfChcecked = [...isActivePokemon];
+          isActivePokemon[indexOfId].isChosen =
+            !isActivePokemon[indexOfId].isChosen;
+          setIsActivePokemon(copyOfChcecked);
+        }
+        if (element.isChosen && element.id !== id) {
+          const copyOfChcecked = [...isActivePokemon];
+          element.isChosen = false;
+          setIsActivePokemon(copyOfChcecked);
+        }
+      }
+    },
+    [isActivePokemon]
+  );
+
+  useEffect(() => {
+    setChosenPokemon(
+      isActivePokemon.find((element) => element.isChosen === true)
+    );
+  }, [chosenPokemon, handleClickedPokemon, isActivePokemon]);
 
   if (isChoosePokemonOpen) {
     return (
@@ -35,7 +61,7 @@ const MainMenu = () => {
                       : ""
                   }
                 `}
-                onClick={handleClickedPokemon}
+                onClick={() => handleClickedPokemon(1)}
               >
                 <img
                   className="mainmenu-pokemon-image"
@@ -52,7 +78,7 @@ const MainMenu = () => {
                       : ""
                   }
                 `}
-                onClick={handleClickedPokemon}
+                onClick={() => handleClickedPokemon(2)}
               >
                 <img
                   className="mainmenu-pokemon-image"
@@ -69,7 +95,7 @@ const MainMenu = () => {
                       : ""
                   }
                 `}
-                onClick={handleClickedPokemon}
+                onClick={() => handleClickedPokemon(3)}
               >
                 <img
                   className="mainmenu-pokemon-image"
@@ -81,7 +107,9 @@ const MainMenu = () => {
             </div>
             <div>
               <button className="mainmenu-findgame-button-container">
-                Find Game
+                {isActivePokemon.every((elment) => elment.isChosen === false)
+                  ? "Choose a Pokemon"
+                  : `Find Game as ${chosenPokemon?.name}`}
               </button>
             </div>
           </div>
