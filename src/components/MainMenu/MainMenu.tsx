@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import PokemonData from "../../Data/PokemonData";
 import { IPokemonData } from "../../Models/PokemonData";
 import "./mainmenu.css";
@@ -101,11 +102,13 @@ const MainMenu = () => {
               </div>
             </div>
             <div>
-              <button className="mainmenu-findgame-button-container">
-                {isActivePokemon.every((elment) => elment.isChosen === false)
-                  ? "Choose a Pokemon"
-                  : `Find Game as ${chosenPokemon?.name}`}
-              </button>
+              <Link to={`/game/${chosenPokemon?.id}`}>
+                <button className="mainmenu-findgame-button-container">
+                  {isActivePokemon.every((elment) => elment.isChosen === false)
+                    ? "Choose a Pokemon"
+                    : `Find Game as ${chosenPokemon?.name}`}
+                </button>
+              </Link>
             </div>
           </div>
         </div>

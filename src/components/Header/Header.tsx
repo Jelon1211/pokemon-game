@@ -6,7 +6,7 @@ const Header = () => {
     <nav className="nav-bar">
       <div className="nav-bar-wrapper">
         <div className="nav-link-wrapper">
-          <a href="*" className="nav-bar-link">
+          <a href="/*" className="nav-bar-link">
             <img
               className="nav-bar-logo"
               src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006_f3.png"
@@ -17,7 +17,7 @@ const Header = () => {
         <div className="nav-bar-text">
           <h1 className="nav-title">Pokemon Super</h1>
           <span className="nav-info">
-            <a href="*">
+            <a href="/*">
               <p className="nav-inf-text">Home</p>
             </a>
             <Link to={"/about"}>
