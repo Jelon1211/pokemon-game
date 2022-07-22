@@ -1,12 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import PokemonData from "../../Data/PokemonData";
+import { IPokemonData } from "../../Models/PokemonData";
 import "./mainmenu.css";
-
-interface IPokemonData {
-  id: number;
-  name: string;
-  isChosen: boolean;
-}
 
 const MainMenu = () => {
   const [isChoosePokemonOpen, setIsChoosePokemonOpen] =
